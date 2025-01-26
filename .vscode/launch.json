@@ -1,43 +1,17 @@
-{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Launch Chrome",
-            "request": "launch",
-            "type": "chrome",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "name": "Attach to Chrome",
-            "port": 9222,
-            "request": "attach",
-            "type": "chrome",
-            "webRoot": "${workspaceFolder}"
-        },
-        $ conda install -c conda-forge textblob
+from textblob import TextBlob
+38403775,
+39AA5A2211A9ACA420F3F71DCB563E50,flyingbiz,flyingbiz,https: //www.tripadvisor.com/Profile/flyingbiz,https://media-cdn.tripadvisor.com/media/photo-s/02/d3/64/62/flyingbiz.jpg,San Francisco,No,5,,Do it soon.,"Getting to Ha Long Bay is not easy.     You can have it arranged by concierge,  tour group or organized group ahead of time,  but you would be missing the spirit of the adventure.    Sadly,  we picked the worst weekend,  next to Tet, for traveling in Vietnam,  it's called Liberation Day  at the end of April.    (3-4 day weekend),  no seats available on planes or trains.   However,  that just added to the adventure.  We did eventually get there from Saigon by flight to Hai Phong, ferry and bus to Cat Ba Town,  where we picked up the boat.    Plan all day to get there from either Hanoi or Saigon.     The range of boats you can choose runs the spectrum from extremely minimal  (bring your own soap)  to air-conditioned luxury.    We had no choice due to no prior planning, and ended up with the lowest end of luxury,  but loved every minute of it,    Only 2 of us on board,  our own skipper and cook.   This allowed an itinerary custom made,   3 days of kayaking anywhere we chose.    Food cooked for us every day was phenomenal and was never more than a few minutes old.    Every need was met.      If you're thinking about this trip,  do it soon as the area is becoming more saturated each day,   cliff side condos can't be far behind,    But for now,   it's a beautiful area and worth the effort.",3,https://media-cdn.tripadvisor.com/media/photo-o/01/3d/5c/03/halong-bay.jpg,,2009-08-21,2009-08-21,en,Halong Bay,1968469,https://www.tripadvisor.com/ShowUserReviews-g293923-d1968469-r38403775-Halong_Bay-Halong_Bay_Quang_Ninh_Province.html
+33793040,
+711B0702CEC0A1146B812196D64056A5,ChrisTMh,ChrisTMh,https: //www.tripadvisor.com/Profile/ChrisTMh,https://media-cdn.tripadvisor.com/media/photo-o/1a/f6/f0/9f/default-avatar-2020-16.jpg,,No,5,,Cruise on Halong Bay,"For all you travellers to Vietnam, don't miss out on beautiful Halong Bay. It is truely one of this world's wonders. A fantastic scenary which should be experienced on one of the many cruise boats sailing in the bay. We sailed on a Vietnamese junke out of Halong Bay port with Columbus Cruise on their Pinta Cruiser and experienced the bay from their lovely boat. The boat is well equipped with nice cabins with shower, a nice restaurant and sun deck area. The food on board is out of this world and the service from the boat's staff is fantastic. I can only recommend to take the 3 day/2 nights cruise. On the second day you will transfer to a 1 day boat - ""Nina Cruiser"" - on which you will sail deeper into the Bay and experience the spectacular scenary, and hopefully sunny weather. Our guide arranged a lovely lunch setting on a small island beach (see photos). I can warmly recommend Columbus Cruise. (I have heard they just have received a new junke from the shipyard.)",2,https://media-cdn.tripadvisor.com/media/photo-o/01/2f/83/83/halong-bay.jpg,,2009-07-03,2009-07-03,en,Halong Bay,1968469,https://www.tripadvisor.com/ShowUserReviews-g293923-d1968469-r33793040-Halong_Bay-Halong_Bay_Quang_Ninh_Province.html
+33043468,
+95A6A4FD907916E665E4B3CA9FC2DF07,DucSon,DucSon,https: //www.tripadvisor.com/Profile/DucSon,https://media-cdn.tripadvisor.com/media/photo-o/1a/f6/f1/42/default-avatar-2020-20.jpg,,No,5,,Halong Phoenix Cruiser – Good services but transportation needed to be upgraded,"Thank Halong Phoenix Cruiser very much especially for the excellent service from the guide Ms Hanh. The trip on the Junk was excellent and service came up to international standards. 
+Please improve on transportation – 15 minutes late on pick up and no air-conditioning when going back making us feel very hot. The van driver was pouring water on his head to avoid drowsiness and we did not feel safe traveling under such conditions. Our luggages were stacked up next to driver’s seat without anything to secure and they tend to fly all over during emergency braking thereby posing a danger to driver, passengers and other road users. This reflects very much the chaotic traffic culture in Hanoi and improvemen to transportation safety should be looked seriously looked into.",0,,,2009-06-24,2009-06-24,en,Halong Bay,1968469,https://www.tripadvisor.com/ShowUserReviews-g293923-d1968469-r33043468-Halong_Bay-Halong_Bay_Quang_Ninh_Province.html32652423,
+9BDD8EE1E29CD1DD03F91C6029A1E793,kirei-jp,kirei-jp,https: //www.tripadvisor.com/Profile/kirei-jp,https://media-cdn.tripadvisor.com/media/photo-o/1a/f6/77/ae/default-avatar-2020-2.jpg,,No,4,,Wonderful Halong kayaking,"We went on a 3D/2N cruise/kayaking tour in Halong bay from 5-7th June 2009. We would like to let you know how much impressed we were with all the staff, but particularly our tour guide (Khoa). He was a very mature guide who relate well to the entire group (various age groups) and his English was outstanding. His local knowledge ensured that we had a very enjoyable trip and will recommend Halong Phoenix Cruiser to others. Thank Khoa!",1,,,2009-06-19,2009-06-18,en,Halong Bay,1968469,https://www.tripadvisor.com/ShowUserReviews-g293923-d1968469-r32652423-Halong_Bay-Halong_Bay_Quang_Ninh_Province.html
+32167683,
+2B424DD2D0CA24EB06761D4FCD621570,
+330driver,
+330driver,https: //www.tripadvisor.com/Profile/330driver,https://media-cdn.tripadvisor.com/media/photo-o/12/7f/3a/63/330driver.jpg,Phuket,No,5,,Pinta Gold Junk Halong Bay,"Having done a 2 day/1 night cheapie Halong Bay trip a number of years ago I decided to try a 3D/2N trip on the Pinta Gold after a little research. We were picked up at our hotel just after the stated time window in a spotless, comfortable, air-con bus for our 3 hour trip to HLB. Half way there the trip was broken by the obligatory 20 min stop at a souvenir/snack shop.
+Transfers at HLB were efficient and we were soon on our way, with lunch being served as soon as we arrived on board. The food served at all meals was tasty, well presented and plentiful, with a variety of seafood, beef, pork and vegetables, followed by a fruit platter. Bottled mineral water was free at all times, as well as being provided on all excursions. Beers were about US$2 and soft drinks US$0.50c (converted from local currency) for which they ran a tab for each cabin. We took a bottle of Jack with us, so just purchased coke/ice to mix with it for after dinner drinks on the roof. There's a full bar in the dining room which I think you'd be expected to use if drinking there. The only complaint I'd have with the catering (considering there was a contingent of Aussies on board) was that there wasn't enough refrigeration/ice to keep up with the demand for really cold beer. We took a few snacks with just in case but didn't touch them on the trip.
+The cabins are quite small, with a rather cramped toilet/shower (I'm 190cm tall), but serve the purpose as somewhere comfortable to sleep. Don't get any ideas about sleeping in after a few G&T's the night before as the air-con is turned off when the boat starts moving at about 6: 45am (breakfast at 7: 00am) which makes the cabin pretty stifling.
+The dining room was spacious (even with a full load of passengers) and the rooftop deck provided a great atmosphere to chill out after dinner. After the first night on board the 3D/2N customers transfer to a smaller tender for the day's activities while the Pinta Gold returned to HLB to drop off/pick up passengers. Some reviewers have complained about this procedure (not limited to Columbus) but it caused us no problems and gave us the opportunity to have a fully catered hot lunch on a secluded, shady beach.
 
-
-
-
-        {
-            "name": "Attach",
-            "port": 9229,
-            "request": "attach",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "node"
-        },
-        {
-            "name": "Python Debugger: Current File",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal"
-        }
-    ]
-}
