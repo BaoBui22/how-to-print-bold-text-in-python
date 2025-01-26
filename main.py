@@ -1,6 +1,13 @@
-# How to print Bold text in Python
+$ pip install -U textblob
+$ python -m textblob.download_corpora
+$ conda install -c conda-forge textblob
+$ conda install -c conda-forge textblob
+$ python -m textblob.download_corpora
+$ conda install -c conda-forge textblob
+$ python -m textblob.download_corpora
+$ git clone https://github.com/sloria/TextBlob.git
+$ pip install -U git+https://github.com/sloria/TextBlob.git@dev
 
-variable = 'this is bold'
-
-print('this is NOT bold ' + '\033[1m' +
-      variable + '\033[0m' + ' this is NOT bold')
+from textblob import TextBlob, Word, Blobber
+from textblob.classifiers import NaiveBayesClassifier
+from textblob.taggers import NLTKTagger
