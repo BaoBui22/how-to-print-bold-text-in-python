@@ -1,0 +1,447 @@
+import pandas as pd
+from textblob import TextBlob
+import matplotlib.pyplot as plt
+
+# Load the dataset
+file_path = "tripadvisor_20240830184151.csv"
+data = pd.read_csv(file_path)
+
+# Preprocessing: Clean and filter relevant columns
+data = data[
+    ['Review Text', 'Rating'
+    ]
+].dropna()
+data['Review Text'
+] = data['Review Text'
+].str.strip()
+
+# Lexicon-Based Sentiment Analysis using TextBlob
+def analyze_sentiment(text):
+    analysis = TextBlob(text)
+    return analysis.sentiment.polarity  # Polarity ranges from -1 (negative) to 1 (positive)
+
+data['TextBlob_Polarity'
+] = data['Review Text'
+].apply(analyze_sentiment)
+
+# Manual Coding: Define sentiment based on rating
+def manual_sentiment_label(rating):
+    if rating >= 4:
+        return "Positive"
+    elif rating == 3:
+        return "Neutral"
+    else:
+        return "Negative"
+
+data['Manual_Sentiment'
+] = data['Rating'
+].apply(manual_sentiment_label)
+
+# Compare Results
+def compare_sentiments(polarity):
+    if polarity > 0.1:
+        return "Positive"
+    elif polarity < -0.1:
+        return "Negative"
+    else:
+        return "Neutral"
+
+data['TextBlob_Sentiment'
+] = data['TextBlob_Polarity'
+].apply(compare_sentiments)
+
+# Visualization: Compare distributions
+comparison = data[
+    ['Manual_Sentiment', 'TextBlob_Sentiment'
+    ]
+].value_counts().unstack()
+
+comparison.plot(kind="bar", figsize=(10,
+6))
+plt.title("Comparison of Manual Coding vs TextBlob Sentiment Analysis")
+plt.xlabel("Sentiment Category")
+plt.ylabel("Frequency")
+plt.show()
+
+# Save results for further analysis
+output_path = "sentiment_comparison_results.csv"
+data.to_csv(output_path, index=False)
+print(f"Results saved to {output_path}")
+import pandas as pd
+from textblob import TextBlob
+import matplotlib.pyplot as plt
+
+# Load the dataset
+file_path = "tripadvisor_20240830184151.csv"
+data = pd.read_csv(file_path)
+
+# Preprocessing: Clean and filter relevant columns
+data = data[['Review Text', 'Rating']].dropna()
+data['Review Text'] = data['Review Text'].str.strip()
+
+# Lexicon-Based Sentiment Analysis using TextBlob
+def analyze_sentiment(text):
+    analysis = TextBlob(text)
+    return analysis.sentiment.polarity  # Polarity ranges from -1 (negative) to 1 (positive)
+
+data['TextBlob_Polarity'] = data['Review Text'].apply(analyze_sentiment)
+
+# Manual Coding: Define sentiment based on rating
+def manual_sentiment_label(rating):
+    if rating >= 4:
+        return "Positive"
+    elif rating == 3:
+        return "Neutral"
+    else:
+        return "Negative"
+
+data['Manual_Sentiment'] = data['Rating'].apply(manual_sentiment_label)
+
+# Compare Results
+def compare_sentiments(polarity):
+    if polarity > 0.1:
+        return "Positive"
+    elif polarity < -0.1:
+        return "Negative"
+    else:
+        return "Neutral"
+
+data['TextBlob_Sentiment'] = data['TextBlob_Polarity'].apply(compare_sentiments)
+
+# Visualization: Compare distributions
+comparison = data[['Manual_Sentiment', 'TextBlob_Sentiment']].value_counts().unstack()
+
+comparison.plot(kind="bar", figsize=(10, 6))
+plt.title("Comparison of Manual Coding vs TextBlob Sentiment Analysis")
+plt.xlabel("Sentiment Category")
+plt.ylabel("Frequency")
+plt.show()
+
+# Save results for further analysis
+output_path = "sentiment_comparison_results.csv"
+data.to_csv(output_path, index=False)
+print(f"Results saved to {output_path}")
+
+import pandas as pd
+from textblob import TextBlob
+import matplotlib.pyplot as plt
+
+# Load the dataset
+file_path = "tripadvisor_20240830184151.csv"
+try:
+    data = pd.read_csv(file_path)
+except FileNotFoundError:
+    print("File not found. Please check the file path.")
+    exit()
+
+# Preprocessing: Clean and filter relevant columns
+data = data[['Review Text', 'Rating']].dropna()
+data['Review Text'] = data['Review Text'].str.strip()
+
+# Lexicon-Based Sentiment Analysis using TextBlob
+def analyze_sentiment(text):
+    try:
+        analysis = TextBlob(text)
+        return analysis.sentiment.polarity  # Polarity ranges from -1 (negative) to 1 (positive)
+    except Exception as e:
+        print(f"Error analyzing sentiment: {e}")
+        return None
+
+data['TextBlob_Polarity'] = data['Review Text'].apply(analyze_sentiment)
+
+# Manual Coding: Define sentiment based on rating
+def manual_sentiment_label(rating):
+    if rating >= 4:
+        return "Positive"
+    elif rating == 3:
+        return "Neutral"
+    else:
+        return "Negative"
+
+data['Manual_Sentiment'] = data['Rating'].apply(manual_sentiment_label)
+
+# Compare Results
+def compare_sentiments(polarity):
+    if polarity is None:
+        return "Neutral"  # Default for errors or missing polarity
+    elif polarity > 0.1:
+        return "Positive"
+    elif polarity < -0.1:
+        return "Negative"
+    else:
+        return "Neutral"
+
+data['TextBlob_Sentiment'] = data['TextBlob_Polarity'].apply(compare_sentiments)
+
+# Match/Mismatch Analysis
+data['Comparison'] = data.apply(
+    lambda row: "Match" if row['Manual_Sentiment'] == row['TextBlob_Sentiment'] else "Mismatch",
+    axis=1
+)
+
+# Visualization: Compare distributions
+comparison = data[['Manual_Sentiment', 'TextBlob_Sentiment']].value_counts().unstack()
+
+# Bar Chart Visualization
+comparison.plot(kind="bar", figsize=(10, 6))
+plt.title("Comparison of Manual Coding vs TextBlob Sentiment Analysis")
+plt.xlabel("Sentiment Category")
+plt.ylabel("Frequency")
+plt.xticks(rotation=0)
+for container in plt.gca().containers:
+    plt.gca().bar_label(container, fmt='%d')
+plt.show()
+
+# Save Results and Summary
+output_path = "sentiment_comparison_results.csv"
+summary_path = "comparison_summary.csv"
+
+data.to_csv(output_path, index=False)
+summary = data['Comparison'].value_counts()
+summary.to_csv(summary_path)
+
+print(f"Results saved to {output_path}")
+print(f"Summary saved to {summary_path}")
+
+import pandas as pd
+from textblob import TextBlob
+import matplotlib.pyplot as plt
+
+# Load the dataset
+file_path = "tripadvisor_20240830184151.csv"
+try:
+    data = pd.read_csv(file_path)
+except FileNotFoundError:
+    print("File not found. Please check the file path.")
+    exit()
+
+# Preprocessing: Clean and filter relevant columns
+data = data[['Review Text', 'Rating']].dropna()
+data['Review Text'] = data['Review Text'].str.strip()
+
+# Lexicon-Based Sentiment Analysis using TextBlob
+def analyze_sentiment(text):
+    try:
+        analysis = TextBlob(text)
+        return analysis.sentiment.polarity  # Polarity ranges from -1 (negative) to 1 (positive)
+    except Exception as e:
+        print(f"Error analyzing sentiment: {e}")
+        return None
+
+data['TextBlob_Polarity'] = data['Review Text'].apply(analyze_sentiment)
+
+# Manual Coding: Define sentiment based on rating
+def manual_sentiment_label(rating):
+    if rating >= 4:
+        return "Positive"
+    elif rating == 3:
+        return "Neutral"
+    else:
+        return "Negative"
+
+data['Manual_Sentiment'] = data['Rating'].apply(manual_sentiment_label)
+
+# Compare Results
+def compare_sentiments(polarity):
+    if polarity is None:
+        return "Neutral"  # Default for errors or missing polarity
+    elif polarity > 0.1:
+        return "Positive"
+    elif polarity < -0.1:
+        return "Negative"
+    else:
+        return "Neutral"
+
+data['TextBlob_Sentiment'] = data['TextBlob_Polarity'].apply(compare_sentiments)
+
+# Match/Mismatch Analysis
+data['Comparison'] = data.apply(
+    lambda row: "Match" if row['Manual_Sentiment'] == row['TextBlob_Sentiment'] else "Mismatch",
+    axis=1
+)
+
+# Visualization: Compare distributions
+comparison = data[['Manual_Sentiment', 'TextBlob_Sentiment']].value_counts().unstack()
+
+# Bar Chart Visualization
+comparison.plot(kind="bar", figsize=(10, 6))
+plt.title("Comparison of Manual Coding vs TextBlob Sentiment Analysis")
+plt.xlabel("Sentiment Category")
+plt.ylabel("Frequency")
+plt.xticks(rotation=0)
+for container in plt.gca().containers:
+    plt.gca().bar_label(container, fmt='%d')
+plt.show()
+
+# Save Results and Summary
+output_path = "sentiment_comparison_results.csv"
+summary_path = "comparison_summary.csv"
+
+data.to_csv(output_path, index=False)
+summary = data['Comparison'].value_counts()
+summary.to_csv(summary_path)
+
+print(f"Results saved to {output_path}")
+print(f"Summary saved to {summary_path}")
+
+import pandas as pd
+from textblob import TextBlob
+import matplotlib.pyplot as plt
+
+# Load the dataset
+file_path = "tripadvisor_20240830184151.csv"
+try:
+    data = pd.read_csv(file_path)
+except FileNotFoundError:
+    print("File not found. Please check the file path.")
+    exit()
+
+# Preprocessing: Clean and filter relevant columns
+data = data[['Review Text', 'Rating']].dropna()
+data['Review Text'] = data['Review Text'].str.strip()
+
+# Lexicon-Based Sentiment Analysis using TextBlob
+def analyze_sentiment(text):
+    try:
+        analysis = TextBlob(text)
+        return analysis.sentiment.polarity  # Polarity ranges from -1 (negative) to 1 (positive)
+    except Exception as e:
+        print(f"Error analyzing sentiment: {e}")
+        return None
+
+data['TextBlob_Polarity'] = data['Review Text'].apply(analyze_sentiment)
+
+# Manual Coding: Define sentiment based on rating
+def manual_sentiment_label(rating):
+    if rating >= 4:
+        return "Positive"
+    elif rating == 3:
+        return "Neutral"
+    else:
+        return "Negative"
+
+data['Manual_Sentiment'] = data['Rating'].apply(manual_sentiment_label)
+
+# Compare Results
+def compare_sentiments(polarity):
+    if polarity is None:
+        return "Neutral"  # Default for errors or missing polarity
+    elif polarity > 0.1:
+        return "Positive"
+    elif polarity < -0.1:
+        return "Negative"
+    else:
+        return "Neutral"
+
+data['TextBlob_Sentiment'] = data['TextBlob_Polarity'].apply(compare_sentiments)
+
+# Match/Mismatch Analysis
+data['Comparison'] = data.apply(
+    lambda row: "Match" if row['Manual_Sentiment'] == row['TextBlob_Sentiment'] else "Mismatch",
+    axis=1
+)
+
+# Visualization: Compare distributions
+comparison = data[['Manual_Sentiment', 'TextBlob_Sentiment']].value_counts().unstack()
+
+# Bar Chart Visualization
+comparison.plot(kind="bar", figsize=(10, 6))
+plt.title("Comparison of Manual Coding vs TextBlob Sentiment Analysis")
+plt.xlabel("Sentiment Category")
+plt.ylabel("Frequency")
+plt.xticks(rotation=0)
+for container in plt.gca().containers:
+    plt.gca().bar_label(container, fmt='%d')
+plt.show()
+
+# Save Results and Summary
+output_path = "sentiment_comparison_results.csv"
+summary_path = "comparison_summary.csv"
+
+data.to_csv(output_path, index=False)
+summary = data['Comparison'].value_counts()
+summary.to_csv(summary_path)
+
+print(f"Results saved to {output_path}")
+print(f"Summary saved to {summary_path}")
+
+import pandas as pd
+from textblob import TextBlob
+import matplotlib.pyplot as plt
+
+# Load the dataset
+file_path = "tripadvisor_20240830184151.csv"
+try:
+    data = pd.read_csv(file_path)
+except FileNotFoundError:
+    print("File not found. Please check the file path.")
+    exit()
+
+# Preprocessing: Clean and filter relevant columns
+data = data[['Review Text', 'Rating']].dropna()
+data['Review Text'] = data['Review Text'].str.strip()
+
+# Lexicon-Based Sentiment Analysis using TextBlob
+def analyze_sentiment(text):
+    try:
+        analysis = TextBlob(text)
+        return analysis.sentiment.polarity  # Polarity ranges from -1 (negative) to 1 (positive)
+    except Exception as e:
+        print(f"Error analyzing sentiment: {e}")
+        return None
+
+data['TextBlob_Polarity'] = data['Review Text'].apply(analyze_sentiment)
+
+# Manual Coding: Define sentiment based on rating
+def manual_sentiment_label(rating):
+    if rating >= 4:
+        return "Positive"
+    elif rating == 3:
+        return "Neutral"
+    else:
+        return "Negative"
+
+data['Manual_Sentiment'] = data['Rating'].apply(manual_sentiment_label)
+
+# Compare Results
+def compare_sentiments(polarity):
+    if polarity is None:
+        return "Neutral"  # Default for errors or missing polarity
+    elif polarity > 0.1:
+        return "Positive"
+    elif polarity < -0.1:
+        return "Negative"
+    else:
+        return "Neutral"
+
+data['TextBlob_Sentiment'] = data['TextBlob_Polarity'].apply(compare_sentiments)
+
+# Match/Mismatch Analysis
+data['Comparison'] = data.apply(
+    lambda row: "Match" if row['Manual_Sentiment'] == row['TextBlob_Sentiment'] else "Mismatch",
+    axis=1
+)
+
+# Visualization: Compare distributions
+comparison = data[['Manual_Sentiment', 'TextBlob_Sentiment']].value_counts().unstack()
+
+# Bar Chart Visualization
+comparison.plot(kind="bar", figsize=(10, 6))
+plt.title("Comparison of Manual Coding vs TextBlob Sentiment Analysis")
+plt.xlabel("Sentiment Category")
+plt.ylabel("Frequency")
+plt.xticks(rotation=0)
+for container in plt.gca().containers:
+    plt.gca().bar_label(container, fmt='%d')
+plt.show()
+
+# Save Results and Summary
+output_path = "sentiment_comparison_results.csv"
+summary_path = "comparison_summary.csv"
+
+data.to_csv(output_path, index=False)
+summary = data['Comparison'].value_counts()
+summary.to_csv(summary_path)
+
+print(f"Results saved to {output_path}")
+print(f"Summary saved to {summary_path}")
