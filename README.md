@@ -1,20 +1,32 @@
-## Instructions
+import pandas as pd
+from textblob import TextBlob
 
-The Python code is in the `main.py` file.
+# Load TripAdvisor data from CSV
+file_path = "[path_to_your_file.csv](../../tripadvisor_20240830184151.csv)"  # Replace with your file path
+data = pd.read_csv(f[ile_path](../../tripadvisor_20240830184151.csv))
 
-To be able to run the code, follow these instructions:
+# Ensure the column containing reviews is named 'Review'
+# If the column name is different, replace 'Review' with the correct column name
+if 'Review' not in data.columns:
+    print("Column 'Review' not found. Check your dataset for the correct column name.")
+else:
+    # Add new columns for polarity and subjectivity
+    data['Polarity'] = data['Review'].apply(lambda x: TextBlob(str(x)).sentiment.polarity)
+    data['Subjectivity'] = data['Review'].apply(lambda x: TextBlob(str(x)).sentiment.subjectivity)
 
-1. Clone the GitHub repository with the `git clone` command.
-2. Open your terminal in the project's root directory.
-3. Optionally, create a virtual environment.
-4. Install the Python modules.
+    # Add a new column for sentiment classification based on polarity
+    def classify_sentiment(polarity):
+        if polarity > 0:
+            return 'Positive'
+        elif polarity < 0:
+            return 'Negative'
+        else:
+            return 'Neutral'
 
-```bash:shell
-pip install -r requirements.txt
-```
+    data['Sentiment'] = data['Polarity'].apply(classify_sentiment)
 
-4. To run the code, issue the `python main.py` command.
+    # Save results to a new CSV file
+    output_file = "sentiment_analysis_results.csv"
+    data.to_csv(output_file, index=False)
 
-```bash:shell
-python main.py
-```
+    print(f"Sentiment analysis completed. Results saved to {output_file}.")
